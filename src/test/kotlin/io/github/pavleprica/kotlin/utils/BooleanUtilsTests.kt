@@ -24,4 +24,21 @@ class BooleanUtilsTests {
 
     }
 
+    @Nested
+    inner class WhenUsingDoesNot {
+
+        @ParameterizedTest(name = "When {0} should be opposite of {0}")
+        @ValueSource(booleans = [ true, false ])
+        fun `When using function should inverse value`(booleanValue: Boolean) {
+            assertEquals(doesNot(booleanValue), !booleanValue)
+        }
+
+        @ParameterizedTest(name = "When {0} should be opposite of {0}")
+        @ValueSource(booleans = [ true, false ])
+        fun `When using function accepting block should inverse value`(booleanValue: Boolean) {
+            assertEquals(doesNot { booleanValue }, !booleanValue)
+        }
+
+    }
+
 }
