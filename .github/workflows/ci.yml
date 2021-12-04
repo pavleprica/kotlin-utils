@@ -16,7 +16,7 @@ jobs:
           java-version: 8
 
       - name: Run tests
-        run: gradle test
+        run: mvn test
 
   publish:
     name: Publish package
@@ -35,6 +35,6 @@ jobs:
         with:
           java-version: 8
       - name: Publish package
-        run: gradle publish
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
